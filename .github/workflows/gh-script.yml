@@ -6,8 +6,10 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@0.8.0
+    - name: GitHub Script
+      uses: actions/github-script@v2.1.0
       with:
+        # The script to run
         script: |
             github.issues.createComment({
             issue_number: context.issue.number,
