@@ -7,14 +7,13 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@v6
-      id: my-script
+    - uses: actions/github-script@0.8.0
       with:
-        result-encoding: string
-        retries: 3
+        github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          github.rest.issues.get({
+          github.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
+            body: "🎉 You've created this issue comment using GitHub Script!!!"
           })
