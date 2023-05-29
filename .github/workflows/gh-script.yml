@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/github-script@v6
       with:
-        # github-token: ${{secrets.GITHUB_TOKEN}}
+        github-token: ${{secrets.PAT}}
         script: |
           github.rest.issues.get({
             issue_number: context.issue.number,
